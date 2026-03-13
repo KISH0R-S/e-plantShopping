@@ -1,0 +1,83 @@
+========================================
+  HOW TO RUN - Paradise Nursery (e-plantShopping)
+========================================
+
+PROJECT LOCATION
+----------------
+C:\Users\Administrator\Documents\projects\paradise-nursery
+
+GITHUB REPOSITORY
+-----------------
+https://github.com/KISH0R-S/e-plantShopping
+
+----------------------------------------
+PREREQUISITES (install once)
+----------------------------------------
+1. Node.js (v18 or higher)
+   Download: https://nodejs.org
+
+2. Git
+   Download: https://git-scm.com
+
+----------------------------------------
+FIRST TIME SETUP
+----------------------------------------
+Open a terminal (PowerShell or Command Prompt) and run:
+
+  cd C:\Users\Administrator\Documents\projects\paradise-nursery
+  npm install
+
+This installs all dependencies. Only needed once.
+
+----------------------------------------
+RUNNING THE PROJECT (DEMO)
+----------------------------------------
+1. Open a terminal and run:
+
+   cd C:\Users\Administrator\Documents\projects\paradise-nursery
+   npm run dev
+
+2. Open your browser and go to:
+   http://localhost:5173
+
+3. To stop the server, press Ctrl+C in the terminal.
+
+----------------------------------------
+CLONING FRESH FROM GITHUB
+----------------------------------------
+If someone needs to run it from scratch:
+
+  git clone https://github.com/KISH0R-S/e-plantShopping.git
+  cd e-plantShopping
+  npm install
+  npm run dev
+
+Then open: http://localhost:5173
+
+----------------------------------------
+PROJECT STRUCTURE
+----------------------------------------
+paradise-nursery/
+  src/
+    App.jsx          - Landing page (Welcome to Paradise Nursery)
+    App.css          - All styles including background image
+    main.jsx         - App entry point with Redux Provider + Router
+    store.js         - Redux store configuration
+    CartSlice.jsx    - Redux slice (add/remove/update cart items)
+    ProductList.jsx  - Plant catalog (3 categories x 6 plants)
+    CartItem.jsx     - Shopping cart page
+    AboutUs.jsx      - About the company page
+  index.html
+  package.json
+  vite.config.js
+  README.md
+
+----------------------------------------
+TECH STACK
+----------------------------------------
+- React 18
+- Redux Toolkit
+- React Router DOM v6
+- Vite (build tool)
+
+========================================
