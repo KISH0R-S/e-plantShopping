@@ -53,7 +53,11 @@ function CartItem() {
           <>
             {cartItems.map(item => (
               <div key={item.name} className="cart-item">
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  onError={e => { e.target.src = `https://placehold.co/90x90/e8f5e9/2e7d32?text=${encodeURIComponent(item.name)}` }}
+                />
                 <div className="cart-item-info">
                   <h3>{item.name}</h3>
                   <div className="unit-price">Unit price: ${item.price.toFixed(2)}</div>
