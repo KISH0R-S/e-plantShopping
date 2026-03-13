@@ -7,17 +7,24 @@ function CartItem() {
   const dispatch = useDispatch()
   const cartItems = useSelector(state => state.cart.items)
   const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0)
-  const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0)
 
-  const handleIncrease = item => {
+  const calculateTotalCost = (item) => {
+    return (item.price * item.quantity).toFixed(2)
+  }
+
+  const calculateTotalAmount = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)
+  }
+
+  const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }))
   }
 
-  const handleDecrease = item => {
+  const handleDecrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }))
   }
 
-  const handleDelete = name => {
+  const handleDelete = (name) => {
     dispatch(removeItem(name))
   }
 
@@ -52,11 +59,11 @@ function CartItem() {
                   <div className="unit-price">Unit price: ${item.price.toFixed(2)}</div>
                 </div>
                 <div className="cart-item-controls">
-                  <button className="qty-btn" onClick={() => handleDecrease(item)}>−</button>
+                  <button className="qty-btn" onClick={() => handleDecrement(item)}>−</button>
                   <span className="qty-display">{item.quantity}</span>
-                  <button className="qty-btn" onClick={() => handleIncrease(item)}>+</button>
+                  <button className="qty-btn" onClick={() => handleIncrement(item)}>+</button>
                 </div>
-                <div className="item-total">${(item.price * item.quantity).toFixed(2)}</div>
+                <div className="item-total">Total: ${calculateTotalCost(item)}</div>
                 <button className="delete-btn" onClick={() => handleDelete(item.name)}>
                   Delete
                 </button>
@@ -65,7 +72,7 @@ function CartItem() {
 
             <div className="cart-summary">
               <h2>Order Summary</h2>
-              <div className="cart-total">Total: ${total.toFixed(2)}</div>
+              <div className="cart-total">Total Cart Amount: ${calculateTotalAmount()}</div>
               <div className="cart-actions">
                 <Link to="/products" className="continue-btn">Continue Shopping</Link>
                 <button className="checkout-btn" onClick={handleCheckout}>

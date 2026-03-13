@@ -1,6 +1,6 @@
 function AboutUs() {
   return (
-    <div className="about-page">
+    <div className="about-us-container">
       <h1>About Paradise Nursery</h1>
       <p>
         Paradise Nursery was founded with a simple mission: to make it easy for
